@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Devinez un nombre entre 0 et 50</h1>
+    <div>
+    <h3 id ="range_info"> 0 &lt; ? &lt; 50 </h3>
+    <input/>
+    <button id="valider">Valider</button>
+    <p id =indice>Besoin d'aide</p>
+    <p id="tentatives"> 0 tentatives</p>
+
+    </div>
+
+    <script>
+
+    //let nombreADeviner = prompt("Nombre à deviner entre 0 et 50")
+        const targetNumber = Math.floor(Math.random() * 51);
+        const changementRange =document.getElementById('range_info')
+        
+       const userInput = document.querySelector('input')
+       const buttonValider = document.getElementById('valider')
+       const userTentatives = document.getElementById('tentatives')
+       const indice = document.getElementById('indice')
+
+       let counter = 0 
+       let minRange = 0 
+       let maxRange = 50 
+
+       buttonValider.addEventListener('click',() =>{
+            counter++
+        if (userInput.value < targetNumber){
+            indice.innerText="Plus grand"
+            minRange = userInput.value 
+            }
+
+        else if (userInput.value>targetNumber){
+            indice.innerText="Plus petit"
+            maxRange = userInput.value
+        }
+        else {indice.innerText="!!!Bravo!!!"
+            
+            changementRange.innerText =`${minRange} < ? < ${maxRange}`
+        return 
+        }// arrête l'exécution si le nombre est deviné
+        
+        changementRange.innerText =`${minRange} < ? < ${maxRange}`
+        userTentatives.innerText = `${counter} tentatives`
+        userInput.value='' // vide le champ de saisie après chaque tentatives
+       })
+
+        //function didIWin (givenNumber,nombreADeviner){
+            //if (givenNumber<nombreADeviner){
+                //alert("Plus grand") 
+                //return false 
+           // }else if (givenNumber>nombreADeviner){
+                //alert("Plus petit")
+                //return false
+            //}else if (givenNumber=nombreADeviner){
+               // alert("Bravo! vous avez deviné le nombre")
+                //return true 
+           // }
+       //}
+        
+       // function gamePlay(){
+           //let didILoose = true 
+            //while(didILoose) {
+               //let givenNumber = prompt("Guess a number") 
+                //didILoose = !didIWin(givenNumber,nombreADeviner)
+            //}
+        //}   
+        //gamePlay()
+
+    </script>
+</body>
+</html>

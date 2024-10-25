@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       
+       
+        function didIWin (givenNumber){
+            if (givenNumber<22){
+                alert("Plus grand")
+                return false 
+            }else if (givenNumber>22){
+                alert("Plus petit")
+                return false
+            }else if (givenNumber=22){
+                alert("Bravo! vous avez deviné le nombre")
+                return true 
+            }
+        }
+        
+        function gamePlay(){
+           let didILoose = true 
+            while(didILoose) {
+                let givenNumber = prompt("Guess a number") 
+                didILoose = !didIWin(givenNumber)
+            }
+        }   
+        gamePlay()
+    </script>
+</body>
+</html>

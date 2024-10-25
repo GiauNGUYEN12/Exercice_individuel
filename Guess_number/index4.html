@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+       let nombreADeviner = prompt("Nombre à deviner entre 0 et 50")
+       
+        function didIWin (givenNumber,nombreADeviner){
+            if (givenNumber<nombreADeviner){
+                alert("Plus grand") 
+                return false 
+            }else if (givenNumber>nombreADeviner){
+                alert("Plus petit")
+                return false
+            }else if (givenNumber=nombreADeviner){
+                alert("Bravo! vous avez deviné le nombre")
+                return true 
+            }
+        }
+        
+        function gamePlay(){
+           let shouldContinue = true 
+            while(shouldContinue) {
+                let givenNumber = prompt("Guess a number") 
+                shouldContinue = !didIWin(givenNumber,nombreADeviner)
+            }
+        }   
+        gamePlay()
+
+    </script>
+</body>
+</html>
